@@ -1,0 +1,263 @@
+$colorText:white;
+$bgGradiente: linear-gradient(to bottom right, black, darkgray);
+
+$margen-pading-inicial:(
+    margin: 0,
+    padding: 0
+);
+
+@mixin sizes($width, $height) {
+    width: $width;
+    height: $height;
+ }
+ 
+
+.my-body-default{
+    color: lightgray;
+    /*position: relative;*/
+    /* Para dejar la imagen de fondo centrada, vertical y horizontalmente */
+    background-position: center center;
+    /* Para que la imagen de fondo no se repita */
+    background-repeat: no-repeat;
+    /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+    background-attachment: fixed;
+    /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+    background-size: cover;
+    /* Se muestra un color de fondo mientras se está cargando la imagen de fondo o si hay problemas para cargarla */
+}
+
+
+
+* {
+    margin: map-get($margen-pading-inicial, margin );
+    padding:  map-get($margen-pading-inicial, padding);
+    box-sizing: border-box;
+}
+
+html {
+    border: 6px solid black;
+    min-height: 100%;
+
+}
+
+body {
+    @extend .my-body-default;
+    background-image: url("../img/191010151958-bw-dubai-twins.jpg");
+}
+
+@import "header";
+@import "nav";
+.divErrorContent {
+    margin-top: 100px;
+    display: grid;
+     grid-template-areas: 
+      "contenido1"
+      "contenido2";
+      grid-column: auto ;
+        > *{
+            border: 1px solid black;
+            padding: 40px;
+            /*Centrar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: .5;
+            background-color: #191919;
+        }
+        .div1 {
+            grid-area: contenido1;
+            font-size: 200px;
+           
+          }
+          .div2 {
+            grid-area: contenido2;
+            font-size: 50px;
+           
+          }
+    }
+    
+    
+
+
+.divIndex {
+    display: grid;
+    grid-template-columns: 80% 80% auto;
+
+    .divIndexForm {
+        width: 80%;
+        >label {
+            // width: 20%;
+            // height: 30px;
+            @include sizes(20%, 30px);
+
+            color: $colorText;
+            margin-top: 20px;
+        }
+        >input {
+            // width: 60%;
+            // height: 40px;
+            @include sizes(60%, 40px);
+            background: $bgGradiente;
+            border-color: #00080e;
+
+            color: $colorText;
+
+            margin-top: 20px;
+        }
+    }
+}
+
+h1{
+    font-size: x-large;
+    display: none;
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+
+
+}
+
+
+.zoom {
+
+    &:hover {
+        transform: scale(1.5);
+    }
+}
+
+.inputStyle {
+    margin-top: 20px;
+    // width: 25%;  
+    // height: 40px;
+    @include sizes(25%, 40px);
+    background: $bgGradiente;
+    border-color: #00080e;
+
+    color: $colorText;
+
+}
+.textAreaStyle{
+    background: $bgGradiente;
+    width: 50%;
+    color: $colorText;
+
+}
+
+
+
+.borderColorButton {
+    border-color: rgb(78, 68, 13);
+}
+
+.pHistoria {
+
+    font-size: large;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+}
+
+.colorInmputletra {
+    color: $colorText;
+}
+
+.iframeYouTube {
+    // width: 727px;
+    // height: 409px;
+    @include sizes(727px, 409px);
+
+}
+
+.galeria {
+    width: 50%;
+
+}
+
+.frameUbicacion {
+    // width: 70%;
+    // height: 400px;
+    @include sizes(70%, 400px);
+    border: 0;
+}
+
+.articleHistoria {
+    background: radial-gradient(rgb(51, 48, 48), rgb(29, 20, 20), rgb(58, 54, 54));
+    width: 100%;
+}
+@import "footer";
+
+@media all and (max-width: 991px) {
+
+
+    .logoEmiratos {
+        display: none;
+
+    }
+
+    .linea1Logo {
+        font-size: 120%;
+
+    }
+
+    .linea2Logo {
+        display: none;
+    }
+
+    .div-nav-container {
+
+        grid-template-columns: auto;
+    }
+
+    .divIndex {
+
+        grid-template-columns: auto auto;
+    }
+
+    .divFormReserva {
+        grid-template-columns: auto;
+
+    }
+
+    .divFormContacto {
+
+        grid-template-columns: auto;
+
+    }
+
+    .iframeYouTube {
+        // width: 200px;
+        // height: 109px;
+        @include sizes(200px, 109px);
+
+    }
+
+    .frameUbicacion {
+        // width: 60%;
+        // height: 300px;
+        @include sizes(60%, 300px);
+
+    }
+
+
+    .divErrorContent {
+        margin-top: 50px;
+        
+            > *{
+                padding: 20px;
+
+            }
+            .div1 {
+
+                font-size: 100px;
+               
+              }
+              .div2 {
+
+                font-size: 25px;
+               
+              }
+        }
+    
+
+}
